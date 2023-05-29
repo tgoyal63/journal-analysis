@@ -43,7 +43,7 @@ export default function Home() {
       {response && (
         <div>
           <h2>Response:</h2>
-          <pre>response.message</pre>
+          <div>response.message</div>
         </div>
       )}
     </div>
