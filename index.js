@@ -7,17 +7,20 @@ export default function Home() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
-    const res = await fetch('/api/analyze-emotion', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ input, prompt })
-    });
-
-    const data = await res.json();
-    setResponse(data);
+    try {
+      const res = await fetch('/api/analyze-emotion', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ input, prompt })
+      });
+  
+      const data = await res.json();
+      setResponse(data);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
