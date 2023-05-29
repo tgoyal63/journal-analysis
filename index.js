@@ -46,7 +46,8 @@ export default function Home() {
       {response && (
         <div>
           <h2>Response:</h2>
-          <div>response.message</div>
+          {/* Parse response.message into HTML */}
+          <div dangerouslySetInnerHTML={{ __html: response.message }} />
         </div>
       )}
     </div>

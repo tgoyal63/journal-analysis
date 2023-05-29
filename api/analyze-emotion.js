@@ -23,8 +23,12 @@ const handler = async (req, res) => {
     });
 
     const data = response.data;
+    let message =  data.choices[0].message.content;
 
-    res.status(200).json({ message: data.choices[0].message.content });
+    // Convert all \n to <br> in message
+    message = message.replace(/\n/g, '<br>');
+
+    res.status(200).json({ message });
   } catch (error) {
     if (error.response) {
         console.error(error.response.status);
